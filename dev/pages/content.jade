@@ -1,0 +1,168 @@
+.container-fluid.no-gutters
+	section.first
+		.row
+			.row-same-height.row-full-height
+				.col-xs-12.col-md-6.col-md-height.col-middle.half01.text-center
+					.slogan
+						h1
+							| #{contenth1}<br>
+							small #{contenth1Small}
+
+						p.address
+							| #{addressP} #{address}<br>
+							span.metro M 
+							if site == "milan"
+								| - San Babila<br><br>
+							if site == "juve"
+								| - San Babila<br><br>
+							if site == "inter"
+								| - Duomo<br><br>
+
+						p
+							if site == "milan"
+								a.btn.btn-lg.btn-primary.btn-lg(href="https://www.google.com/maps/d/viewer?ll=45.465804,9.197005&t=m&source=embed&ie=UTF8&msa=0&spn=0.003612,0.006191&z=17&mid=zFzR1fh7MyjQ.kbmtLCGcZlB4" role="button") #{addressCta}
+							if site == "inter"
+								a.btn.btn-lg.btn-primary.btn-lg(href="https://www.google.com/maps?ll=45.465073,9.197418&z=15&t=m&hl=it-IT&gl=IT&mapclient=embed&cid=10538794286891186026" role="button") #{addressCta}
+							if site == "juve"
+								a.btn.btn-lg.btn-primary.btn-lg(href="https://www.google.com/maps?ll=45.465073,9.197418&z=15&t=m&hl=it-IT&gl=IT&mapclient=embed&cid=10538794286891186026" role="button") #{addressCta}
+
+					.orari
+						h4 #{programTitle}
+						p: i: strong #{program}
+					.container-fluid.no-gutters
+						.row
+							.col-xs-12
+								//.section#map-container
+
+
+								h1.text-center #{titlep}
+								p: small #{contentp}
+								.row
+									.col-xs-12.col-sm-4.abbigliamento
+										.simbol.center-block.text-center
+											svg(version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve")
+												path#tShirt(fill="none" stroke-width="3" stroke-miterlimit="10" d="M171.216,80.892 c-5.453,1.78-12.885,2.88-21.091,2.88s-15.638-1.1-21.091-2.88L64.482,97.3l9.3,34.82h27.899v88.238h26.601h43.687h26.601V132.12 h27.899l9.3-34.82L171.216,80.892z")
+												path#tShirt02(fill="none" stroke-width="9" stroke-miterlimit="10" d="M143.803,162.718 c0,6.224-5.045,11.269-11.269,11.269l0,0c-6.224,0-11.269-5.045-11.269-11.269v-24.187c0-6.224,5.045-11.269,11.269-11.269l0,0 c6.224,0,11.269,5.045,11.269,11.269V162.718z")
+												path#tShirt01(fill="none" stroke-width="9" stroke-miterlimit="10" d="M178.984,162.718 c0,6.224-5.045,11.269-11.269,11.269l0,0c-6.224,0-11.269-5.045-11.269-11.269v-24.187c0-6.224,5.045-11.269,11.269-11.269l0,0 c6.224,0,11.269,5.045,11.269,11.269V162.718z")
+												circle#circle(fill="none" stroke-width="5" stroke-miterlimit="10" cx="150.125" cy="150.625" r="129.958")
+
+										if langEN
+											h3.clearfix Match Kits<br>
+												small and Leisurewear
+										else
+											h3.clearfix Abbigliamento<br>
+												small Gara e tempo libero
+
+
+									.col-xs-12.col-sm-4.accessori
+
+										.simbol.center-block.text-center
+											svg(version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve")
+												path#hat_01(fill="none" stroke-width="5" stroke-miterlimit="10" d="M110.833,157.26 c47.551,34.731,121.907,28.437,121.907,28.437c5.066-33.738-10.023-69.462-49.402-76.173 C143.434,102.722,119.797,132.019,110.833,157.26l-44.521,16.083c0,0,33.099,46.852,82.515,2.797c0,0-0.466-31.934,34.512-66.616")
+												path#hat_02(fill="none" stroke-width="9" stroke-linecap="round" stroke-miterlimit="10" d="M181.049,104.98 c5.709,0.961,8.315,1.4,8.315,1.4")
+												//polygon#cravata(fill="none" stroke-width="9" stroke-miterlimit="10" points="179.378,210.376 150.125,234.276 120.872,210.376 137.926,96.6 162.324,96.6 ")
+												//polygon#cravata_nod(fill="#FFFFFF" stroke-miterlimit="10" points="162.324,96.6 137.926,96.6 125.976,66.974 174.274,66.974 ")
+												circle#circle(fill="none" stroke-width="5" stroke-miterlimit="10" cx="150.125" cy="150.625" r="129.958")
+
+										if langEN
+											h3.clearfix Accessories<br>
+												small All accessories and gadgets
+										else
+											h3.clearfix Accessori<br>
+												small Tutti accessori e gadget
+
+									.col-xs-12.col-sm-4.gift
+										.simbol.center-block.text-center
+											svg(version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve")
+												rect#gift05(x="97.843" y="98.841" fill="none" stroke-width="4" stroke-miterlimit="10" width="104.564" height="104.564")
+												line#gift04(fill="none" stroke-width="9" stroke-miterlimit="10" x1="150.125" y1="98.841" x2="150.125" y2="203.405")
+												line#gift03(fill="none" stroke-width="9" stroke-miterlimit="10" x1="97.843" y1="151.123" x2="202.407" y2="151.123")
+												path#gift02(fill="none" stroke-width="9" stroke-miterlimit="10" d="M121.089,151.123 c-4.457,0-7.807-3.964-7.807-8.421s3.613-8.07,8.07-8.07c1.565,0,3.026,0.445,4.263,1.216l24.51,15.275l-26.775,26.775")
+												path#gift01(fill="none" stroke-width="9" stroke-miterlimit="10" d="M179.161,151.123 c4.457,0,7.807-3.964,7.807-8.421s-3.613-8.07-8.07-8.07c-1.565,0-3.026,0.445-4.263,1.216l-24.51,15.275l26.775,26.775")
+												circle#circle(fill="none" stroke-width="5" stroke-miterlimit="10" cx="150.125" cy="150.625" r="129.958")
+
+										if langEN
+											h3.clearfix Gift ideas<br>
+												small for all
+										else
+											h3.clearfix Idee regalo<br>
+												small Per tutti
+
+				.col-xs-12.col-md-6.col-md-height.col-top.promotion
+					.container-fluid.no-gutters
+						.row
+							.col-xs-12.col-sm-10.col-sm-offset-1
+								//-#landing-header
+									.landing-header-media
+										img.landing-img(src="assets/images/prod01.png" alt="Photo description")
+										.landing-header-content
+											h4 Personalizza le maglie gara
+											p
+												| Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+								if site == "milan"
+									#landing-header.first
+										.landing-header-media
+											img.landing-img(src="#{assets}/images/#{banner01img}" alt="#{banner01header}")
+											.landing-header-content
+												h4 #{banner01header}
+												p
+													|  #{banner01txt}
+									#landing-header
+										.landing-header-media.last
+											img.landing-img(src="#{assets}/images/#{banner02img}" alt="#{banner02header}")
+											.landing-header-content
+												h4 #{banner02header}
+												p
+													|  #{banner02txt}
+									#landing-header.last
+										//- 16:9 aspect ratio
+										.embed-responsive.embed-responsive-16by9
+											//- 4:3 aspect ratio
+											//-.embed-responsive.embed-responsive-4by3
+											iframe.embed-responsive-item(src="#{videoPlaylist}")
+
+								if site == "inter"
+									#landing-header.first
+										.landing-header-media
+											img.landing-img(src="#{assets}/images/#{banner01img}" alt="#{banner01header}")
+											.landing-header-content
+												h4 #{banner01header}
+												p
+													|  #{banner01txt}
+									#landing-header
+										.landing-header-media.last
+											img.landing-img(src="#{assets}/images/#{banner02img}" alt="#{banner02header}")
+											.landing-header-content
+												h4 #{banner02header}
+												p
+													|  #{banner02txt}
+									//- #landing-header.last
+										//- 16:9 aspect ratio
+										.embed-responsive.embed-responsive-16by9
+											//- 4:3 aspect ratio
+											//-.embed-responsive.embed-responsive-4by3
+											iframe.embed-responsive-item(src="#{videoPlaylist}")
+								if site == "juve"
+									#landing-header.first
+										.landing-header-media
+											img.landing-img(src="#{assets}/images/#{banner01img}" alt="#{banner01header}")
+											.landing-header-content
+												h4 #{banner01header}
+												p
+													|  #{banner01txt}
+									#landing-header
+										.landing-header-media.last
+											img.landing-img(src="#{assets}/images/#{banner02img}" alt="#{banner02header}")
+											.landing-header-content
+												h4 #{banner02header}
+												p
+													|  #{banner02txt}
+									//-#landing-header
+										.landing-header-media.last
+											img.landing-img(src="#{assets}/images/#{banner03img}" alt="#{banner03header}")
+											.landing-header-content
+												h4 #{banner03header}
+												p
+													|  #{banner03txt}
+
+

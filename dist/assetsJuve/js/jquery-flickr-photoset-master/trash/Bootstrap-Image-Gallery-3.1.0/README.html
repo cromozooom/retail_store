@@ -1,0 +1,84 @@
+<h1 id="bootstrap-image-gallery">Bootstrap Image Gallery</h1>
+<ul>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#description">Description</a></li>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2 id="demo">Demo</h2>
+<p><a href="http://blueimp.github.io/Bootstrap-Image-Gallery/">Bootstrap Image Gallery Demo</a></p>
+<h2 id="description">Description</h2>
+<p>Bootstrap Image Gallery is an extension to <a href="http://blueimp.github.io/Gallery/">blueimp Gallery</a>, a touch-enabled, responsive and customizable image &amp; video gallery.<br>It displays images and videos in the modal dialog of the <a href="http://getbootstrap.com/">Bootstrap</a> framework, features swipe, mouse and keyboard navigation, transition effects, fullscreen support and on-demand content loading and can be extended to display additional content types.</p>
+<h2 id="setup">Setup</h2>
+<p>Copy the <strong>css</strong>, <strong>img</strong> and <strong>js</strong> directories to your website.</p>
+<p>Add the following HTML snippet to the head section of your webpage:</p>
+<pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/bootstrap-image-gallery.min.css&quot;&gt;
+</code></pre>
+<p>Add the following HTML snippet with the Gallery widget to the body of your webpage:</p>
+<pre><code class="lang-html">&lt;!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body --&gt;
+&lt;div id=&quot;blueimp-gallery&quot; class=&quot;blueimp-gallery&quot;&gt;
+    &lt;!-- The container for the modal slides --&gt;
+    &lt;div class=&quot;slides&quot;&gt;&lt;/div&gt;
+    &lt;!-- Controls for the borderless lightbox --&gt;
+    &lt;h3 class=&quot;title&quot;&gt;&lt;/h3&gt;
+    &lt;a class=&quot;prev&quot;&gt;‹&lt;/a&gt;
+    &lt;a class=&quot;next&quot;&gt;›&lt;/a&gt;
+    &lt;a class=&quot;close&quot;&gt;×&lt;/a&gt;
+    &lt;a class=&quot;play-pause&quot;&gt;&lt;/a&gt;
+    &lt;ol class=&quot;indicator&quot;&gt;&lt;/ol&gt;
+    &lt;!-- The modal dialog, which will be used to wrap the lightbox content --&gt;
+    &lt;div class=&quot;modal fade&quot;&gt;
+        &lt;div class=&quot;modal-dialog&quot;&gt;
+            &lt;div class=&quot;modal-content&quot;&gt;
+                &lt;div class=&quot;modal-header&quot;&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;close&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+                    &lt;h4 class=&quot;modal-title&quot;&gt;&lt;/h4&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;modal-body next&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;modal-footer&quot;&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-default pull-left prev&quot;&gt;
+                        &lt;i class=&quot;glyphicon glyphicon-chevron-left&quot;&gt;&lt;/i&gt;
+                        Previous
+                    &lt;/button&gt;
+                    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary next&quot;&gt;
+                        Next
+                        &lt;i class=&quot;glyphicon glyphicon-chevron-right&quot;&gt;&lt;/i&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Include the following scripts at the bottom of the body of your webpage:</p>
+<pre><code class="lang-html">&lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/bootstrap-image-gallery.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Create a list of links to image files with the attribute <strong>data-gallery</strong> (optionally with enclosed thumbnails) and add them to the body of your webpage:</p>
+<pre><code class="lang-html">&lt;div id=&quot;links&quot;&gt;
+    &lt;a href=&quot;images/banana.jpg&quot; title=&quot;Banana&quot; data-gallery&gt;
+        &lt;img src=&quot;images/thumbnails/banana.jpg&quot; alt=&quot;Banana&quot;&gt;
+    &lt;/a&gt;
+    &lt;a href=&quot;images/apple.jpg&quot; title=&quot;Apple&quot; data-gallery&gt;
+        &lt;img src=&quot;images/thumbnails/apple.jpg&quot; alt=&quot;Apple&quot;&gt;
+    &lt;/a&gt;
+    &lt;a href=&quot;images/orange.jpg&quot; title=&quot;Orange&quot; data-gallery&gt;
+        &lt;img src=&quot;images/thumbnails/orange.jpg&quot; alt=&quot;Orange&quot;&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="documentation">Documentation</h2>
+<p>For information regarding Keyboard shortcuts, Gallery Options, API methods, Video Gallery setup, Gallery extensions and Browser support, please refer to the <a href="https://github.com/blueimp/Gallery/blob/master/README.md">blueimp Gallery documentation</a>.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li><a href="http://jquery.com/">jQuery</a> v. 1.9.0+</li>
+<li><a href="http://getbootstrap.com/">Bootstrap</a> v. 3.0.0+</li>
+<li><a href="https://github.com/blueimp/Gallery">blueimp Gallery</a> v. 2.12.0+</li>
+</ul>
+<h2 id="license">License</h2>
+<p>Released under the <a href="http://www.opensource.org/licenses/MIT">MIT license</a>.</p>

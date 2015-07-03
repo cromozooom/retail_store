@@ -1,0 +1,11 @@
+1.
+
+Intall bootstrap sass with bower
+(https://github.com/twbs/bootstrap-sass#c-bower)
+
+comand line: bower install bootstrap-sass
+
+
+2.
+
+add project to prepro

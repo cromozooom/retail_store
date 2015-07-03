@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
+<circle id="circle" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-miterlimit="10" cx="150.125" cy="150.625" r="129.958"/>
+<path id="tShirt" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" d="M171.216,80.892
+	c-5.453,1.78-12.885,2.88-21.091,2.88s-15.638-1.1-21.091-2.88L64.482,97.3l9.3,34.82h27.899v88.238h26.601h43.687h26.601V132.12
+	h27.899l9.3-34.82L171.216,80.892z"/>
+<path id="tShirt02" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-miterlimit="10" d="M143.803,162.718
+	c0,6.224-5.045,11.269-11.269,11.269l0,0c-6.224,0-11.269-5.045-11.269-11.269v-24.187c0-6.224,5.045-11.269,11.269-11.269l0,0
+	c6.224,0,11.269,5.045,11.269,11.269V162.718z"/>
+<path id="tShirt01" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-miterlimit="10" d="M178.984,162.718
+	c0,6.224-5.045,11.269-11.269,11.269l0,0c-6.224,0-11.269-5.045-11.269-11.269v-24.187c0-6.224,5.045-11.269,11.269-11.269l0,0
+	c6.224,0,11.269,5.045,11.269,11.269V162.718z"/>
+<polygon id="cravata" display="none" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-miterlimit="10" points="
+	179.378,210.376 150.125,234.276 120.872,210.376 137.926,96.6 162.324,96.6 "/>
+<polygon id="caravata_nod" display="none" fill="#FFFFFF" stroke="#FFFFFF" stroke-miterlimit="10" points="162.324,96.6 
+	137.926,96.6 125.976,66.974 174.274,66.974 "/>
+<rect id="gift05" x="97.843" y="98.841" display="none" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-miterlimit="10" width="104.564" height="104.564"/>
+<line id="gift04" display="none" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-miterlimit="10" x1="150.125" y1="98.841" x2="150.125" y2="203.405"/>
+<line id="gift03" display="none" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-miterlimit="10" x1="97.843" y1="151.123" x2="202.407" y2="151.123"/>
+<path id="gift02" display="none" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-miterlimit="10" d="M121.089,151.123
+	c-4.457,0-7.807-3.964-7.807-8.421s3.613-8.07,8.07-8.07c1.565,0,3.026,0.445,4.263,1.216l24.51,15.275l-26.775,26.775"/>
+<path id="gift01" display="none" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-miterlimit="10" d="M179.161,151.123
+	c4.457,0,7.807-3.964,7.807-8.421s-3.613-8.07-8.07-8.07c-1.565,0-3.026,0.445-4.263,1.216l-24.51,15.275l26.775,26.775"/>
+</svg>

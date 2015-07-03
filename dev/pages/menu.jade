@@ -1,0 +1,29 @@
+nav.navbar.navbar-inverse.navbar-fixed-top
+	div.container
+		//- Brand and toggle get grouped for better mobile display
+		div.navbar-header
+			button.navbar-toggle.collapsed(type="button", data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
+				span.sr-only Toggle navigation
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
+			a.navbar-brand(href="#{ homePage }")
+				// insert logo svg format
+				// include ../svg/logo.jade
+
+		//- Collect the nav links, forms, and other content for toggling
+		div.collapse.navbar-collapse(id="bs-example-navbar-collapse-1")
+			ul.nav.navbar-nav.navbar-right
+				li(class="#{activeHome}"): a(href="#{homePagelink}") #{homePage}
+				li(class="dropdown #{activeItem01}"): a.dropdown-toggle(href="#" data-toggle="dropdown" role="button" aria-expanded="false") #{item01Title}&nbsp;
+					span.caret
+					ul.dropdown-menu(role="menu")
+
+						li
+							a(href="#{item01ALink}")
+								| #{item01ATitle}
+						li
+							a(href="#{item01BLink}")
+								| #{item01BTitle}
+
+				li(class="#{activeContact}"): a(href="mailto:#{contactMail}?Subject=mesaggio%20#{site}%20Megastore") Contact

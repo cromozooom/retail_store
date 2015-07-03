@@ -1,0 +1,25 @@
+section.header
+	padding: .5em 0
+	.first
+		padding-top: 1em
+
+	p.phone
+		//text-align: right
+		//padding-top: 1em
+		font-size: 1.5em
+		a
+			color: white
+
+@media (max-width: $screen-xs-max)
+	.center
+		text-align: center
+		margin: 0 auto
+
+	section.header
+		//padding: 0 0
+		img
+			@extend	.center
+			padding: 1em 0
+		p
+			@extend	.center
+			padding: .5em 0

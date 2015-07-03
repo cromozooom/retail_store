@@ -1,0 +1,12 @@
+section#carta(data-speed="6" data-type="background")
+	.container-fluid
+		#bg.row
+			.col-xs-12.col-md-6
+				img.img-responsive.img-center(src="#{assets}/images/pre_footer_tessera.png" alt="#{cartaHeader}")
+			.col-xs-12.col-md-6.text-center
+				h1 #{cartaHeader} <br>
+					small: i #{cartaSub}
+				p
+					i #{cartaTxt}
+				p.cta
+					a.btn.btn-primary.btn-lg(href="#{cartaLink}" role="button") #{cartaCta}

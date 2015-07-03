@@ -1,0 +1,340 @@
+extends pages/layout
+append config
+	//- PRODUCTIE
+	- var productie = false
+
+	block cms
+		if site == "milan"
+			if productie == true
+				- var assets = "http://store.acmilan.com/media/epi/immagini/pagina-negozio/assets"
+			else
+				- var assets = "assetsMilan"
+
+
+		if site == "juve"
+			if productie == true
+				- var assets = "http://juvestore.com/media/epi/immagini/pagina-negozio/assets"
+			else
+				- var assets = "assetsJuve"
+
+		if site == "inter"
+			if productie == true
+				- var assets = "http://store.inter.it/media/epi/immagini/pagina-negozio/assets"
+			else
+				- var assets = "assetsInter"
+
+		if site == "milan"
+			- var flickr 		= "https://www.flickr.com/photos/131426361@N05/"
+			- var videoPlaylist = "https://www.youtube.com/embed/EEkqhQZqhNs?list=PLS-5GMmKle5Jz0LrM8yiApIsxVI4sEu_J"
+			- var contactMail	= "milanmegastore@gmail.com"
+			- var phone01 =	"02 49.58.01.76"
+			- var phone02 =	"349.85.26.042"
+
+			if langEN
+				- var PageTitle =	"Milan Megastore"
+				- var altLogo =	"Milan Megastore"
+				- var Keywords =	"Ac Milan - Official Game Jerseys - adidas collection - training range - leisurewear collection - official merchandise and gadgets - personalisable jerseys, apparel, mugs, smartphone and tablet covers - Serie A patch - Champions League Patch - man - woman - kid - boy - infant"
+				- var description =	"Welcome to the Milan Megastore, the official Ac Milan merchandise store in the heart of Milano. Come to visit us to shop the Ac Milan official match jerseys, the latest leisurewear and training collections plus many other official products and gadgets. Personalise the match jerseys with the name of your hero or with your name and adding the Serie A and 7 Champions League official patches. adidas and leisurewear personalisable collections also available as well as mugs, tablet and smartphone covers."
+				- var bodyClass =	"index"
+
+				//- store info
+				- var contenth1 =	"Discover the Milan Megastore"
+				- var contenth1Small =	"500 sm on 2 floors"
+
+				- var addressP =	"a few steps from the Duomo of Milan"
+				- var address =	"C.so Vittorio Emanuele II Galleria San Carlo - Milano"
+				- var addressCta =	"View on map"
+
+				- var programTitle =	"Opening hours"
+				- var program =	"Open 7 days a week | From: 10AM to 8PM"
+
+				//- banner info
+				- var banner01header =	"Personalise your cover in 5 minutes"
+				- var banner01txt =	"Make your tablet or smatphone unique personalising the cover with your name"
+				- var banner01img =	"prod02.png"
+				- var banner02header =	"Personalise your products with your name"
+				- var banner02txt =	"Training and leisurewear collections personalisable"
+				- var banner02img =	"prod03.png"
+
+				//- carta info
+				- var cartaHeader =	"Exclusive 15% OFF"
+				- var cartaSub =	"for the Cuore Rossonero Card holders"
+				- var cartaTxt =	"Discounts cannot be combined with other promotions."
+				- var cartaCta =	"See details on site"
+				- var cartaLink =	"http://www.acmilan.com/en/shop/agreements"
+
+				//- map info
+				- var mapHeader =	"Map"
+				- var galeriaHeader =	"Gallery"
+
+				//- added context
+				- var titlep = "Customize Your Products"
+				- var contentp = "All clothing race and leisure Adidas, accessories, gadgets, gift ideas and the area where you can customize your exclusive products"
+
+			else
+				//- italiano
+
+				- var PageTitle =	"Milan megastore"
+				- var altLogo =	"Milan Megastore"
+				- var Keywords =	"Ac Milan - Maglia gara ufficiali - collezione adidas - collezione allenamento - collezione tempo libero - merchandise e gadget ufficiali - maglie personalizzabili - abbigliamento personalizzabile - tazze personalizzabili - cover per smartphone e tablet personalizzabili - Patch Serie A - Patch 7 Coppe - uomo - donna - ragazzo - bambino - neonato"
+				- var description =	"Benvenuto al Milan Megastore, il negozio ufficiale dell'Ac Milan. Vienici a visitare nella nostra location nel cuore di Milano per scoprire le nostre collezioni; maglie gara ufficiali, le ultime linee di abbigliamento tempo libero e allenamento più molti altri prodotti ufficiali e gadget. Personalizza le maglie gara con il tuo nome o con quello del tuo giocatore preferito e aggiungi le patch ufficiali della Serie A e 7 Champions League. I capi di abbigliamento adidas e tempo libero sono anch'essi personalizzabili, così come le tazze e le cover per smartphone e tablet."
+				- var bodyClass =	"index"
+
+				//- store info
+				- var contenth1 =	"Vieni a scoprire il Milan Megastore"
+				- var contenth1Small =	"500 mq su 2 livelli"
+
+				- var addressP =	"A pochi passi dal Duomo di Milano!"
+				- var address =	"C.so Vittorio Emanuele II Galleria San Carlo - Milano"
+				- var addressCta =	"vedi su mappa"
+
+				- var programTitle =	"Orari apertura"
+				- var program =	"Aperto 7 giorni su 7 | orario: 10.00 - 20.00"
+
+				//- banner info
+				- var banner01header =	"Personalizza la tua cover in 5 minuti"
+				- var banner01txt =	"Rendi unico il tuo smartphone o il tuo tablet con la cover con il tuo nome"
+				- var banner01img =	"prod02.png"
+				- var banner02header =	"Personalizza i prodotti con il tuo nome"
+				- var banner02txt =	"Collezioni tempo libero e allenamento personalizzabili"
+				- var banner02img =	"prod03.png"
+
+				//- carta info
+				- var cartaHeader =	"Sconto del 15%"
+				- var cartaSub =	"PER I POSSESSORI DI CARTA CUORE ROSSONERO"
+				- var cartaTxt =	"Gli sconti non sono cumulabili con  altre promozioni in corso."
+				- var cartaCta =	"vedi detagli sul sito"
+				- var cartaLink =	"http://www.acmilan.com/it/shop/agreements"
+
+				//- map info
+				- var mapHeader =	"Mappa"
+				- var galeriaHeader =	"Galleria"
+
+				//- added context
+				- var titlep = "Personalizza I tuoi prodotti"
+				- var contentp = "Tutto l´abbigliamento gara e tempo libero Adidas, gli accessori, i gadget, tante idee regalo e l´area esclusiva dove puoi personalizzare i tuoi prodotti"
+
+		if site == "juve"
+			- var flickr	= "https://www.flickr.com/photos/131360166@N07/"
+			- var contactMail	= "juvestore.milano@gmail.com"
+			- var phone01 =	"02 92.86.93.66"
+
+			//- var phone02 =	"349.85.26.042"
+
+			if langEN
+				//- inglese
+
+				- var PageTitle =	" Juventus Store Milano "
+				- var altLogo =	"Juventus Store Milano"
+				- var Keywords =	"Juventus FC - Official Game Jerseys - Nike collection - training range - leisurewear collection - official merchandise and gadgets - personalisable jerseys, apparel, smartphone and tablet covers - Serie A patch - Scudetto patch - Champions League Patch - man - woman - kid - boy - infant"
+				- var description =	"Welcome to the Juventus Store Milano, the official Juventus merchandise store in the city centre. Come to visit us for shopping the Juventus official match jerseys, the latest leisurewear and training collections plus many other official products and gadgets. Personalise the match jerseys with the name of your hero or with your name and adding the Serie A and Scudetto official patches. Nike and leisurewear personalisable collections also available as well as tablet and smartphone covers."
+				- var bodyClass =	"index"
+
+				//- store info
+				- var contenth1 =	"Discover the official Juventus Store"
+				- var contenth1Small =	"250 sm on 2 floors"
+
+				- var addressP =	"Visit us! We are in Milano City Centre"
+				- var address =	"Corso Europa, 20 - Milano"
+				- var addressCta =	"View on map"
+
+				- var programTitle =	"Opening Hours"
+				- var program =	"Open 7 days a week | From: 10AM to 8PM"
+
+				//- banner info
+				- var banner01header =	"Personalise your cover in 5 minutes"
+				- var banner01txt =	"Make your tablet or smatphone unique personalising the cover with your name"
+				- var banner01img =	"prod01.png"
+				- var banner02header =	"Personalise your products with your name"
+				- var banner02txt =	"Training and leisurewear collections personalisable"
+				- var banner02img =	"prod02.png"
+
+				//- carta info
+				- var cartaHeader =	"Exclusive 10% OFF"
+				- var cartaSub =	"For all Premium and 1897 Cards Holders"
+				- var cartaTxt =	"Discounts cannot be combined with other promotions."
+				- var cartaCta =	"See details on site"
+				- var cartaLink =	"http://www.juvestore.com/en/juventus-member"
+
+				//- map info
+				- var mapHeader =	"Map"
+				- var galeriaHeader =	"Gallery"
+
+				//- added context
+				- var titlep = "Customize Your Products"
+				- var contentp = "All clothing race and leisure Adidas, accessories, gadgets, gift ideas and the area where you can customize your exclusive products"
+
+			else
+				//- italiano
+
+				- var PageTitle =	"Juventus Store Milano"
+				- var altLogo =	"Juventus Store Milano"
+				- var Keywords =	"Juventus - Maglia gara ufficiali - collezione Nike - collezione allenamento - collezione tempo libero - merchandise e gadget ufficiali - maglie personalizzabili - abbigliamento personalizzabile - cover per smartphone e tablet personalizzabili - Patch Serie A - Patch Champions League - uomo - donna - ragazzo - bambino - neonato"
+				- var description =	"Benvenuto allo Juventus Store Milano, il negozio ufficiale della Juventus. Vienici a visitare nella nostra location nel cuore di Milano per scoprire le nostre collezioni; maglie gara ufficiali, le ultime linee di abbigliamento tempo libero e allenamento più molti altri prodotti ufficiali e gadget. Personalizza le maglie gara con il tuo nome o con quello del tuo giocatore preferito e aggiungi le patch ufficiali della Serie A e Champions League. I capi di abbigliamento Nike e tempo libero sono anch'essi personalizzabili, così come le cover per smartphone e tablet."
+				- var bodyClass =	"index"
+
+				//- store info
+				- var contenth1 =	"Vieni a scoprire lo Juventus Store Milano"
+				- var contenth1Small =	"250 mq su 2 livelli"
+
+				- var addressP =	"Vieni a visitarci! Siamo nel centro di Milano"
+				- var address =	"Corso Europa, 20 - Milano"
+				- var addressCta =	"vedi su mappa"
+
+				- var programTitle =	"Orari apertura"
+				- var program =	"Aperto 7 giorni su 7 | orario: 10.00 - 20.00"
+
+				//- banner info
+				- var banner01header =	"Personalizza la tua cover in 5 minuti"
+				- var banner01txt =	"Rendi unico il tuo smartphone o il tuo tablet con la cover con il tuo nome"
+				- var banner01img =	"prod01.png"
+				- var banner02header =	"Personalizza i prodotti con il tuo nome"
+				- var banner02txt =	"Collezioni tempo libero e allenamento personalizzabili"
+				- var banner02img =	"prod02.png"
+
+				//- carta info
+				- var cartaHeader =	"Sconto del 10%"
+				- var cartaSub =	"PER I POSSESSORI DELLA CARTA 1897"
+				- var cartaTxt =	"Gli sconti non sono cumulabili con  altre promozioni in corso."
+				- var cartaCta =	"vedi detagli sul sito"
+				- var cartaLink =	"http://www.juvestore.com/it/juventus-member"
+
+				//- map info
+				- var mapHeader =	"Mappa"
+				- var galeriaHeader =	"Galleria"
+
+				//- added context
+				- var titlep = "Personalizza I tuoi prodotti"
+				- var contentp = "Tutto l´abbigliamento gara e tempo libero Adidas, gli accessori, i gadget, tante idee regalo e l´area esclusiva dove puoi personalizzare i tuoi prodotti"
+
+
+		if site == "inter"
+			- var flickr 		= "https://www.flickr.com/photos/129707676@N06/"
+			- var videoPlaylist = "https://www.youtube.com/embed/EEkqhQZqhNs?list=PLS-5GMmKle5Jz0LrM8yiApIsxVI4sEu_J"
+			- var contactMail	= "solointer@gmail.com"
+			- var phone01 		= "02 80.58.20.44"
+			- var phone02 		= "349.85.26.042"
+
+			if langEN
+				//- inglese
+
+				- var PageTitle =	"Solo Inter Store"
+				- var altLogo =	"Solo Inter Store"
+				- var Keywords =	"Fc Internazionale Milano - Official Game Jerseys - Nike collection - training range - leisurewear collection - official merchandise and gadgets - personalisable jerseys, apparel, mugs, smartphone and tablet covers - Serie A patch - man - woman - kid - boy - infant"
+				- var description =	"Welcome to Solo Inter Store, the official FC Internazionale Milano merchandise store in the heart of Milano. Come to visit us to shop the Inter official match jerseys, the latest leisurewear and training collections plus many other official products and gadgets. Personalise the match jerseys with the name of your hero or with your name and adding the Serie A patch. Nike and leisurewear personalisable collections also available as well as mugs, tablet and smartphone covers."
+				- var bodyClass =	"index"
+
+				//- store info
+				- var contenth1 =	"Discover Solo Inter Store"
+				- var contenth1Small =	"500 sm on 3 floors"
+
+				- var addressP =	"a few steps from the Duomo of Milan"
+				- var address =	"Via Berchet 1, 20121 Milano "
+				- var addressCta =	"View on map"
+
+				- var programTitle =	"Opening hours"
+				- var program =	"Open 7 days a week | From: 10AM to 8PM"
+
+				//- banner info
+				- var banner01header =	"Personalise your cover in 5 minutes"
+				- var banner01txt =	"Make your tablet or smatphone unique personalising the cover with your name"
+				- var banner01img =	"prod01.png"
+				- var banner02header =	"Personalise your products with your name"
+				- var banner02txt =	"Training and leisurewear collections personalisable"
+				- var banner02img =	"prod02.png"
+
+				//- carta info
+				- var cartaHeader =	"Exclusive 15% OFF"
+				- var cartaSub =	"for the Siamo Noi! Card holders"
+				- var cartaTxt =	"Discounts cannot be combined with other promotions."
+				- var cartaCta =	"See details on site"
+				- var cartaLink =	"http://store.inter.it/en/siamo-noi"
+
+				//- map info
+				- var mapHeader =	"Map"
+				- var galeriaHeader =	"Gallery"
+
+				//- added context
+				- var titlep = "Customize Your Products"
+				- var contentp = "All clothing race and leisure Adidas, accessories, gadgets, gift ideas and the area where you can customize your exclusive products"
+
+			else
+				//- italiano
+
+				- var PageTitle =	"Solo Inter Store"
+				- var altLogo =	"Solo Inter Store"
+				- var Keywords =	"Fc Internazionale Milano - Maglia gara ufficiali - collezione Nike - collezione allenamento - collezione tempo libero - merchandise e gadget ufficiali - maglie personalizzabili - abbigliamento personalizzabile - tazze personalizzabili - cover per smartphone e tablet personalizzabili - Patch Serie A - uomo - donna - ragazzo - bambino - neonato"
+				- var description =	"Benvenuto al Solo Inter Store, il negozio ufficiale dell'FC Internazionale Milano. Vienici a visitare nella nostra location nel cuore di Milano per scoprire le nostre collezioni; maglie gara ufficiali, le ultime linee di abbigliamento tempo libero e allenamento più molti altri prodotti ufficiali e gadget. Personalizza le maglie gara con il tuo nome o con quello del tuo giocatore preferito e aggiungi la patch ufficiale della Serie A. I capi di abbigliamento Nike e tempo libero sono anch'essi personalizzabili, così come le tazze e le cover per smartphone e tablet."
+				- var bodyClass =	"index"
+
+				//- store info	//- store info
+				- var contenth1 =	"Vieni a scoprire il Solo Inter Store"
+				- var contenth1Small =	"500 mq su 3 livelli"
+
+				- var addressP =	"A pochi passi dal Duomo di Milano!"
+				- var address =	"Via Berchet 1, 20121 Milano "
+				- var addressCta =	"vedi su mappa"
+
+				- var programTitle =	"Orari apertura"
+				- var program =	"Aperto 7 giorni su 7 | orario: 10.00 - 20.00"
+
+
+				//- banner info	//- banner info
+				- var banner01header =	"Personalizza la tua cover in 5 minuti"
+				- var banner01txt =	"Rendi unico il tuo smartphone o il tuo tablet con la cover con il tuo nome"
+				- var banner01img =	"prod02.png"
+				- var banner02header =	"Personalizza i prodotti con il tuo nome"
+				- var banner02txt =	"Collezioni tempo libero e allenamento personalizzabili"
+				- var banner02img =	"prod03.png"
+
+				//- carta info	//- carta info
+				- var cartaHeader =	"Sconto del 10%"
+				- var cartaSub =	"PER I POSSESSORI DI CARTA SIAMO NOI!"
+				- var cartaTxt =	"Gli sconti non sono cumulabili con  altre promozioni in corso."
+				- var cartaCta =	"vedi detagli sul sito"
+				- var cartaLink =	"http://store.inter.it/it/siamo-noi"
+
+				//- map info	//- map info
+				- var mapHeader =	"Mappa"
+				- var galeriaHeader =	"Galleria"
+
+				//- added context
+				- var titlep = "Personalizza I tuoi prodotti"
+				- var contentp = "Tutto l´abbigliamento gara e tempo libero Adidas, gli accessori, i gadget, tante idee regalo e l´area esclusiva dove puoi personalizzare i tuoi prodotti"
+
+	//- jQuery (necessary for Bootstrap's JavaScript plugins)
+	- var jQuery = true
+
+	//- bootstrap
+	- var bootstrap = true
+
+	//- paralax
+	- var paralax = true
+
+	//- maps
+	- var gmaps = false
+
+	- var flexslider = false
+
+	//-bootstrap Gallery
+	- var bootstrapGallery = false
+
+	//-bootstrap Gallery
+	- var JsFlickrGallery = false
+
+	//- Mordernizr
+	- var Mordernizr = false
+
+	//- bootstrapGalleryV02
+	- var bootstrapGalleryV02 = true
+
+
+block content
+	include pages/header.jade
+	include pages/content.jade
+	include pages/carta.jade
+	include pages/blueimp-gallery.jade
+	include pages/footer.jade
+
+
+

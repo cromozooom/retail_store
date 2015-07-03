@@ -1,0 +1,103 @@
+.container-fluid
+	section
+		.container-fluid
+			.row
+				.col-xs-12.col-sm-12.text-center
+					h1.text-center #{mapHeader}
+					if site == "milan"
+						iframe(src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2798.1717180680885!2d9.194249419096984!3d45.466344670482826!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786b1be2350de27%3A0x77388c24d094ea33!2sMilan+Megastore!5e0!3m2!1sit!2sit!4v1429793658866" width="800" height="600" frameborder="0" style="border:0")
+					if site == "juve"
+						iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5596.261641381489!2d9.19464996034498!3d45.46716856323305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6a50dfe482f%3A0x924151912710b76a!2sJuventus+Store+Milano!5e0!3m2!1sit!2sit!4v1429800007244" width="800" height="600" frameborder="0" style="border:0")
+					if site == "inter"
+						iframe(src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2798.2072638896875!2d9.190588729931658!3d45.46562857732903!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbb8235fdaf6430a7!2sSolo+Inter+Store!5e0!3m2!1sit!2sit!4v1429799966903" width="800" height="600" frameborder="0" style="border:0")
+					//-.section#map-container
+			.row
+				hr
+				.hidden-xs.col-sm-6
+					h1.text-left #{galeriaHeader}
+				.hidden-sm.hidden-md.hidden-lg.col-xs-12.col-sm-6
+					h1.text-center #{galeriaHeader}
+				.hidden-xs.col-sm-6.text-right
+					a.btn.btn-sm.btn-primary(href="#{flickr}")
+						if langEN
+							| See more
+						else
+							| Visualizza tute le foto
+						if JsFlickrGallery
+							div(data-toggle="jsfg" data-tags="dogs" data-per-page="10")
+
+
+			.row
+				.col-xs-12.col-sm-12.text-center
+					if bootstrapGallery
+						#links
+						//- The Bootstrap Image Gallery lightbox, should be a child element of the document body
+						#blueimp-gallery.blueimp-gallery
+							//- The container for the modal slides
+							.slides
+							//- Controls for the borderless lightbox
+							h3.title
+							a.prev ‹
+							a.next ›
+							a.close ×
+							a.play-pause
+							ol.indicator
+							//- The modal dialog, which will be used to wrap the lightbox content
+							.modal.fade
+								.modal-dialog.modal-lg
+									.modal-content
+										.modal-header
+											button(type="button" class="close" aria-hidden="true") &times;
+											h4.modal-title
+
+										.modal-body.next.img
+										.modal-footer
+											button.btn.btn-default.pull-left.prev(type="button")
+												i.glyphicon.glyphicon-chevron-left
+													| Previous
+											button.btn.btn-primary.next(type="button")
+												i.glyphicon.glyphicon-chevron-right
+													| Next
+					if bootstrapGalleryV02
+
+						// Gallery thumbnails
+						.gallery
+							.row
+								.col-xs-12.spinner-wrapper
+									.spinner
+								.gallery-container
+						// Blueimp gallery
+						#blueimp-gallery.blueimp-gallery.blueimp-gallery-controls
+							.slides
+							h3.title
+							a.prev ‹
+							a.next ›
+							a.close ×
+							a.play-pause
+							ol.indicator
+							.modal.fade
+								.modal-dialog
+									.modal-content
+										.modal-header
+											button.close(type="button" class="" aria-hidden="true") &times;
+											h4.modal-title
+										.modal-body.next
+										.modal-footer
+											button.btn.btn-default.pull-left.prev(type="button")
+												i.glyphicon.glyphicon-chevron-left
+												| Previous
+											button.btn.btn-primary.next(type="button")
+												| Next
+												i.glyphicon.glyphicon-chevron-right
+
+						script(src="#{assets}/js/jquery-flickr-photoset-master/myGallery.js")
+						//-script
+							$(function() { $.extend(blueimp.Gallery.prototype.options, { useBootstrapModal: false, hidePageScrollbars: false}); $('.gallery').flickr({ apiKey: '6e2b6f4a8ad20061ce7cb3748ebb7531', photosetId: '72157650933599795'});});
+
+				.col-xs-12
+					p.max
+						a.btn.btn-lg.btn-primary.btn-block(href="#{flickr}")
+							if langEN
+								| See more
+							else
+								| Visualizza tute le foto

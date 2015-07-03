@@ -1,0 +1,56 @@
+/*
+Error: Invalid CSS after "1px solid red": expected expression (e.g. 1px, bold), was ";"
+        on line 3 of footer.sass
+
+1: #footer
+2: 	.footer-main
+3: 		border-bottom: 1px solid red;
+4: 
+5: 
+6: 
+7: 	p
+8: 		display: inline-block
+
+Backtrace:
+footer.sass:3
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/scss/parser.rb:1165:in `expected'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/script/lexer.rb:220:in `expected!'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/script/parser.rb:602:in `assert_done'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/script/parser.rb:63:in `parse'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/script/parser.rb:183:in `parse'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/script.rb:27:in `parse'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:1120:in `parse_script'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:710:in `parse_property'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:681:in `parse_property_or_rule'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:647:in `parse_line'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:525:in `build_tree'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:544:in `block in append_children'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:543:in `each'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:543:in `append_children'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:534:in `block in build_tree'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:527:in `each'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:527:in `build_tree'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:544:in `block in append_children'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:543:in `each'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:543:in `append_children'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:534:in `block in build_tree'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:527:in `each'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:527:in `build_tree'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:544:in `block in append_children'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:543:in `each'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:543:in `append_children'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:396:in `_to_tree'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:285:in `render_with_sourcemap'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:396:in `run'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:62:in `process_result'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/exec/base.rb:52:in `parse'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/exec/base.rb:19:in `parse!'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/bin/sass:13:in `<top (required)>'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/loader.rb:15:in `load'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/loader.rb:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"1px solid red\": expected expression (e.g. 1px, bold), was \";\"\A         on line 3 of footer.sass\A \A 1: #footer\A 2: 	.footer-main\A 3: 		border-bottom: 1px solid red;\A 4: \A 5: \A 6: \A 7: 	p\A 8: 		display: inline-block"; }

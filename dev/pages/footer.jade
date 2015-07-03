@@ -1,0 +1,28 @@
+section#footer
+	.container-fluid
+		.row
+			.col-xs-12
+				.container
+					.row
+						.col-xs-12.footer-main
+							p.pull-left
+								if phone01
+									a(href="#{phone01}")
+										| #{phone01} 
+								if phone02
+									| | 
+									a(href="#{phone02}") #{phone02}
+								br
+								span #{address}
+							p.pull-right
+								a.btn.btn-primary(href="mailto:#{contactMail}?Subject=mesaggio%20#{site}%20Megastore") Contact Us
+
+						//-.col-xs-12.footer-cred
+							.pull-left
+								p © 2015 AC Milan
+								p
+									a(href="") Privacy Policy
+								p
+									a(href="") Terms of Use
+							.pull-right
+								p Website by soloPX - Design

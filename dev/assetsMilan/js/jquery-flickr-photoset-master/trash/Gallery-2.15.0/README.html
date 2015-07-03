@@ -1,0 +1,820 @@
+<h1 id="blueimp-gallery">blueimp Gallery</h1>
+<ul>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#description">Description</a></li>
+<li><a href="#setup">Setup</a><ul>
+<li><a href="#lightbox-setup">Lightbox setup</a></li>
+<li><a href="#controls">Controls</a></li>
+<li><a href="#carousel-setup">Carousel setup</a></li>
+</ul>
+</li>
+<li><a href="#keyboard-shortcuts">Keyboard shortcuts</a></li>
+<li><a href="#options">Options</a><ul>
+<li><a href="#default-options">Default options</a></li>
+<li><a href="#event-callbacks">Event callbacks</a></li>
+<li><a href="#carousel-options">Carousel options</a></li>
+<li><a href="#indicator-options">Indicator options</a></li>
+<li><a href="#fullscreen-options">Fullscreen options</a></li>
+<li><a href="#video-options">Video options</a><ul>
+<li><a href="#video-factory-options">Video factory options</a></li>
+<li><a href="#youtube-options">YouTube options</a></li>
+<li><a href="#vimeo-options">Vimeo options</a></li>
+</ul>
+</li>
+<li><a href="#container-and-element-options">Container and element options</a></li>
+<li><a href="#property-options">Property options</a></li>
+</ul>
+</li>
+<li><a href="#api">API</a><ul>
+<li><a href="#initialization">Initialization</a></li>
+<li><a href="#api-methods">API methods</a></li>
+<li><a href="#videos">Videos</a><ul>
+<li><a href="#html5-video-player">HTML5 video player</a></li>
+<li><a href="#multiple-video-sources">Multiple video sources</a></li>
+<li><a href="#youtube">YouTube</a></li>
+<li><a href="#vimeo">Vimeo</a></li>
+</ul>
+</li>
+<li><a href="#additional-gallery-elements">Additional Gallery elements</a></li>
+<li><a href="#additional-content-types">Additional content types</a><ul>
+<li><a href="#example-html-text-factory-implementation">Example HTML text factory implementation</a></li>
+</ul>
+</li>
+<li><a href="#jquery-plugin">jQuery plugin</a><ul>
+<li><a href="#jquery-plugin-setup">jQuery plugin setup</a></li>
+<li><a href="#html5-data-attributes">HTML5 data-attributes</a></li>
+<li><a href="#container-ids-and-link-grouping">Container ids and link grouping</a></li>
+<li><a href="#gallery-object">Gallery object</a></li>
+<li><a href="#jquery-events">jQuery events</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#browsers">Browsers</a><ul>
+<li><a href="#desktop-browsers">Desktop browsers</a></li>
+<li><a href="#mobile-browsers">Mobile browsers</a></li>
+</ul>
+</li>
+<li><a href="#license">License</a></li>
+<li><a href="#credits">Credits</a></li>
+</ul>
+<h2 id="demo">Demo</h2>
+<p><a href="http://blueimp.github.io/Gallery/">blueimp Gallery Demo</a></p>
+<h2 id="description">Description</h2>
+<p>blueimp Gallery is a touch-enabled, responsive and customizable image and video gallery, carousel and lightbox, optimized for both mobile and desktop web browsers.<br>It features swipe, mouse and keyboard navigation, transition effects, slideshow functionality, fullscreen support and on-demand content loading and can be extended to display additional content types.</p>
+<h2 id="setup">Setup</h2>
+<h3 id="lightbox-setup">Lightbox setup</h3>
+<p>Copy the <strong>css</strong>, <strong>img</strong> and <strong>js</strong> directories to your website.</p>
+<p>Include the Gallery stylesheet in the head section of your webpage:</p>
+<pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;css/blueimp-gallery.min.css&quot;&gt;
+</code></pre>
+<p>Add the following HTML snippet with the Gallery widget to the body of your webpage:</p>
+<pre><code class="lang-html">&lt;!-- The Gallery as lightbox dialog, should be a child element of the document body --&gt;
+&lt;div id=&quot;blueimp-gallery&quot; class=&quot;blueimp-gallery&quot;&gt;
+    &lt;div class=&quot;slides&quot;&gt;&lt;/div&gt;
+    &lt;h3 class=&quot;title&quot;&gt;&lt;/h3&gt;
+    &lt;a class=&quot;prev&quot;&gt;‹&lt;/a&gt;
+    &lt;a class=&quot;next&quot;&gt;›&lt;/a&gt;
+    &lt;a class=&quot;close&quot;&gt;×&lt;/a&gt;
+    &lt;a class=&quot;play-pause&quot;&gt;&lt;/a&gt;
+    &lt;ol class=&quot;indicator&quot;&gt;&lt;/ol&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Include the Gallery script at the bottom of the body of your webpage:</p>
+<pre><code class="lang-html">&lt;script src=&quot;js/blueimp-gallery.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Create a list of links to image files, optionally with enclosed thumbnails and add them to the body of your webpage, before including the Gallery script:</p>
+<pre><code class="lang-html">&lt;div id=&quot;links&quot;&gt;
+    &lt;a href=&quot;images/banana.jpg&quot; title=&quot;Banana&quot;&gt;
+        &lt;img src=&quot;images/thumbnails/banana.jpg&quot; alt=&quot;Banana&quot;&gt;
+    &lt;/a&gt;
+    &lt;a href=&quot;images/apple.jpg&quot; title=&quot;Apple&quot;&gt;
+        &lt;img src=&quot;images/thumbnails/apple.jpg&quot; alt=&quot;Apple&quot;&gt;
+    &lt;/a&gt;
+    &lt;a href=&quot;images/orange.jpg&quot; title=&quot;Orange&quot;&gt;
+        &lt;img src=&quot;images/thumbnails/orange.jpg&quot; alt=&quot;Orange&quot;&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Add the following JavaScript code after including the Gallery script, to display the images in the Gallery lightbox on click of the links:</p>
+<pre><code class="lang-html">&lt;script&gt;
+document.getElementById(&#39;links&#39;).onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName(&#39;a&#39;);
+    blueimp.Gallery(links, options);
+};
+&lt;/script&gt;
+</code></pre>
+<h3 id="controls">Controls</h3>
+<p>To initialize the Gallery with visible controls, add the CSS class <strong>blueimp-gallery-controls</strong> to the Gallery widget:</p>
+<pre><code class="lang-html">&lt;div id=&quot;blueimp-gallery&quot; class=&quot;blueimp-gallery blueimp-gallery-controls&quot;&gt;
+    &lt;div class=&quot;slides&quot;&gt;&lt;/div&gt;
+    &lt;h3 class=&quot;title&quot;&gt;&lt;/h3&gt;
+    &lt;a class=&quot;prev&quot;&gt;‹&lt;/a&gt;
+    &lt;a class=&quot;next&quot;&gt;›&lt;/a&gt;
+    &lt;a class=&quot;close&quot;&gt;×&lt;/a&gt;
+    &lt;a class=&quot;play-pause&quot;&gt;&lt;/a&gt;
+    &lt;ol class=&quot;indicator&quot;&gt;&lt;/ol&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="carousel-setup">Carousel setup</h3>
+<p>To display the images in an inline carousel instead of a lightbox, follow the <a href="#lightbox-setup">lightbox setup</a> and add the CSS class <strong>blueimp-gallery-carousel</strong> to the Gallery widget and remove the child element with the <strong>close</strong> class, or add a new Gallery widget with a different <strong>id</strong> to your webpage:</p>
+<pre><code class="lang-html">&lt;!-- The Gallery as inline carousel, can be positioned anywhere on the page --&gt;
+&lt;div id=&quot;blueimp-gallery-carousel&quot; class=&quot;blueimp-gallery blueimp-gallery-carousel&quot;&gt;
+    &lt;div class=&quot;slides&quot;&gt;&lt;/div&gt;
+    &lt;h3 class=&quot;title&quot;&gt;&lt;/h3&gt;
+    &lt;a class=&quot;prev&quot;&gt;‹&lt;/a&gt;
+    &lt;a class=&quot;next&quot;&gt;›&lt;/a&gt;
+    &lt;a class=&quot;play-pause&quot;&gt;&lt;/a&gt;
+    &lt;ol class=&quot;indicator&quot;&gt;&lt;/ol&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Add the following JavaScript code after including the Gallery script to initialize the carousel:</p>
+<pre><code class="lang-html">&lt;script&gt;
+blueimp.Gallery(
+    document.getElementById(&#39;links&#39;).getElementsByTagName(&#39;a&#39;),
+    {
+        container: &#39;#blueimp-gallery-carousel&#39;,
+        carousel: true
+    }
+);
+&lt;/script&gt;
+</code></pre>
+<h2 id="keyboard-shortcuts">Keyboard shortcuts</h2>
+<p>The Gallery can be controlled with the following keyboard shortcuts:</p>
+<ul>
+<li><strong>Return</strong>: Toggle controls visibility.</li>
+<li><strong>Esc</strong>: Close the Gallery lightbox.</li>
+<li><strong>Space</strong>: Toggle the slideshow (play/pause).</li>
+<li><strong>Left</strong>: Move to the previous slide.</li>
+<li><strong>Right</strong>: Move to the next slide.</li>
+</ul>
+<p>Please note that setting the <strong>carousel</strong> option to <strong>true</strong> disables the keyboard shortcuts by default.</p>
+<h2 id="options">Options</h2>
+<h3 id="default-options">Default options</h3>
+<p>The following are the default options set by the core Gallery library:</p>
+<pre><code class="lang-js">var options = {
+    // The Id, element or querySelector of the gallery widget:
+    container: &#39;#blueimp-gallery&#39;,
+    // The tag name, Id, element or querySelector of the slides container:
+    slidesContainer: &#39;div&#39;,
+    // The tag name, Id, element or querySelector of the title element:
+    titleElement: &#39;h3&#39;,
+    // The class to add when the gallery is visible:
+    displayClass: &#39;blueimp-gallery-display&#39;,
+    // The class to add when the gallery controls are visible:
+    controlsClass: &#39;blueimp-gallery-controls&#39;,
+    // The class to add when the gallery only displays one element:
+    singleClass: &#39;blueimp-gallery-single&#39;,
+    // The class to add when the left edge has been reached:
+    leftEdgeClass: &#39;blueimp-gallery-left&#39;,
+    // The class to add when the right edge has been reached:
+    rightEdgeClass: &#39;blueimp-gallery-right&#39;,
+    // The class to add when the automatic slideshow is active:
+    playingClass: &#39;blueimp-gallery-playing&#39;,
+    // The class for all slides:
+    slideClass: &#39;slide&#39;,
+    // The slide class for loading elements:
+    slideLoadingClass: &#39;slide-loading&#39;,
+    // The slide class for elements that failed to load:
+    slideErrorClass: &#39;slide-error&#39;,
+    // The class for the content element loaded into each slide:
+    slideContentClass: &#39;slide-content&#39;,
+    // The class for the &quot;toggle&quot; control:
+    toggleClass: &#39;toggle&#39;,
+    // The class for the &quot;prev&quot; control:
+    prevClass: &#39;prev&#39;,
+    // The class for the &quot;next&quot; control:
+    nextClass: &#39;next&#39;,
+    // The class for the &quot;close&quot; control:
+    closeClass: &#39;close&#39;,
+    // The class for the &quot;play-pause&quot; toggle control:
+    playPauseClass: &#39;play-pause&#39;,
+    // The list object property (or data attribute) with the object type:
+    typeProperty: &#39;type&#39;,
+    // The list object property (or data attribute) with the object title:
+    titleProperty: &#39;title&#39;,
+    // The list object property (or data attribute) with the object URL:
+    urlProperty: &#39;href&#39;,
+    // The gallery listens for transitionend events before triggering the
+    // opened and closed events, unless the following option is set to false:
+    displayTransition: true,
+    // Defines if the gallery slides are cleared from the gallery modal,
+    // or reused for the next gallery initialization:
+    clearSlides: true,
+    // Defines if images should be stretched to fill the available space,
+    // while maintaining their aspect ratio (will only be enabled for browsers
+    // supporting background-size=&quot;contain&quot;, which excludes IE &lt; 9).
+    // Set to &quot;cover&quot;, to make images cover all available space (requires
+    // support for background-size=&quot;cover&quot;, which excludes IE &lt; 9):
+    stretchImages: false,
+    // Toggle the controls on pressing the Return key:
+    toggleControlsOnReturn: true,
+    // Toggle the automatic slideshow interval on pressing the Space key:
+    toggleSlideshowOnSpace: true,
+    // Navigate the gallery by pressing left and right on the keyboard:
+    enableKeyboardNavigation: true,
+    // Close the gallery on pressing the ESC key:
+    closeOnEscape: true,
+    // Close the gallery when clicking on an empty slide area:
+    closeOnSlideClick: true,
+    // Close the gallery by swiping up or down:
+    closeOnSwipeUpOrDown: true,
+    // Emulate touch events on mouse-pointer devices such as desktop browsers:
+    emulateTouchEvents: true,
+    // Stop touch events from bubbling up to ancestor elements of the Gallery:
+    stopTouchEventsPropagation: false,
+    // Hide the page scrollbars: 
+    hidePageScrollbars: true,
+    // Stops any touches on the container from scrolling the page:
+    disableScroll: true,
+    // Carousel mode (shortcut for carousel specific options):
+    carousel: false,
+    // Allow continuous navigation, moving from last to first
+    // and from first to last slide:
+    continuous: true,
+    // Remove elements outside of the preload range from the DOM:
+    unloadElements: true,
+    // Start with the automatic slideshow:
+    startSlideshow: false,
+    // Delay in milliseconds between slides for the automatic slideshow:
+    slideshowInterval: 5000,
+    // The starting index as integer.
+    // Can also be an object of the given list,
+    // or an equal object with the same url property:
+    index: 0,
+    // The number of elements to load around the current index:
+    preloadRange: 2,
+    // The transition speed between slide changes in milliseconds:
+    transitionSpeed: 400,
+    // The transition speed for automatic slide changes, set to an integer
+    // greater 0 to override the default transition speed:
+    slideshowTransitionSpeed: undefined,
+    // The event object for which the default action will be canceled
+    // on Gallery initialization (e.g. the click event to open the Gallery):
+    event: undefined,
+    // Callback function executed when the Gallery is initialized.
+    // Is called with the gallery instance as &quot;this&quot; object:
+    onopen: undefined,
+    // Callback function executed when the Gallery has been initialized
+    // and the initialization transition has been completed.
+    // Is called with the gallery instance as &quot;this&quot; object:
+    onopened: undefined,
+    // Callback function executed on slide change.
+    // Is called with the gallery instance as &quot;this&quot; object and the
+    // current index and slide as arguments:
+    onslide: undefined,
+    // Callback function executed after the slide change transition.
+    // Is called with the gallery instance as &quot;this&quot; object and the
+    // current index and slide as arguments:
+    onslideend: undefined,
+    // Callback function executed on slide content load.
+    // Is called with the gallery instance as &quot;this&quot; object and the
+    // slide index and slide element as arguments:
+    onslidecomplete: undefined,
+    // Callback function executed when the Gallery is about to be closed.
+    // Is called with the gallery instance as &quot;this&quot; object:
+    onclose: undefined,
+    // Callback function executed when the Gallery has been closed
+    // and the closing transition has been completed.
+    // Is called with the gallery instance as &quot;this&quot; object:
+    onclosed: undefined
+};
+</code></pre>
+<h3 id="event-callbacks">Event callbacks</h3>
+<p>Event callbacks can be set as function properties of the options object passed to the Gallery initialization function:</p>
+<pre><code class="lang-js">var gallery = blueimp.Gallery(
+    linkList,
+    {
+        onopen: function () {
+            // Callback function executed when the Gallery is initialized.
+        },
+        onopened: function () {
+            // Callback function executed when the Gallery has been initialized
+            // and the initialization transition has been completed.
+        },
+        onslide: function (index, slide) {
+            // Callback function executed on slide change.
+        },
+        onslideend: function (index, slide) {
+            // Callback function executed after the slide change transition.
+        },
+        onslidecomplete: function (index, slide) {
+            // Callback function executed on slide content load.
+        },
+        onclose: function () {
+            // Callback function executed when the Gallery is about to be closed.
+        },
+        onclosed: function () {
+            // Callback function executed when the Gallery has been closed
+            // and the closing transition has been completed.
+        }
+    }
+);
+</code></pre>
+<h3 id="carousel-options">Carousel options</h3>
+<p>If the <strong>carousel</strong> option is <strong>true</strong>, the following options are set to different default values:</p>
+<pre><code class="lang-js">var carouselOptions = {
+    hidePageScrollbars: false,
+    toggleControlsOnReturn: false,
+    toggleSlideshowOnSpace: false,
+    enableKeyboardNavigation: false,
+    closeOnEscape: false,
+    closeOnSlideClick: false,
+    closeOnSwipeUpOrDown: false,
+    disableScroll: false,
+    startSlideshow: true
+};
+</code></pre>
+<p>The options object passed to the Gallery function extends the default options and also those options set via <strong>carousel</strong> mode.</p>
+<h3 id="indicator-options">Indicator options</h3>
+<p>The following are the additional default options set for the slide position indicator:</p>
+<pre><code class="lang-js">var indicatorOptions = {
+    // The tag name, Id, element or querySelector of the indicator container:
+    indicatorContainer: &#39;ol&#39;,
+    // The class for the active indicator:
+    activeIndicatorClass: &#39;active&#39;,
+    // The list object property (or data attribute) with the thumbnail URL,
+    // used as alternative to a thumbnail child element:
+    thumbnailProperty: &#39;thumbnail&#39;,
+    // Defines if the gallery indicators should display a thumbnail:
+    thumbnailIndicators: true
+};
+</code></pre>
+<h3 id="fullscreen-options">Fullscreen options</h3>
+<p>The following are the additional default options set for the fullscreen mode:</p>
+<pre><code class="lang-js">var fullscreenOptions = {
+    // Defines if the gallery should open in fullscreen mode:
+    fullScreen: false
+};
+</code></pre>
+<h3 id="video-options">Video options</h3>
+<h4 id="video-factory-options">Video factory options</h4>
+<p>The following are the additional default options set for the video factory:</p>
+<pre><code class="lang-js">var videoFactoryOptions = {
+    // The class for video content elements:
+    videoContentClass: &#39;video-content&#39;,
+    // The class for video when it is loading:
+    videoLoadingClass: &#39;video-loading&#39;,
+    // The class for video when it is playing:
+    videoPlayingClass: &#39;video-playing&#39;,
+    // The list object property (or data attribute) for the video poster URL:
+    videoPosterProperty: &#39;poster&#39;,
+    // The list object property (or data attribute) for the video sources array:
+    videoSourcesProperty: &#39;sources&#39;
+};
+</code></pre>
+<h4 id="youtube-options">YouTube options</h4>
+<p>Options for <a href="https://www.youtube.com/">YouTube</a> videos:</p>
+<pre><code class="lang-js">var youTubeOptions = {
+    // The list object property (or data attribute) with the YouTube video id:
+    youTubeVideoIdProperty: &#39;youtube&#39;,
+    // Optional object with parameters passed to the YouTube video player:
+    // https://developers.google.com/youtube/player_parameters
+    youTubePlayerVars: undefined,
+    // Require a click on the native YouTube player for the initial playback:
+    youTubeClickToPlay: true
+};
+</code></pre>
+<h4 id="vimeo-options">Vimeo options</h4>
+<p>Options for <a href="https://vimeo.com/">Vimeo</a> videos:</p>
+<pre><code class="lang-js">var youTubeOptions = {
+    // The list object property (or data attribute) with the Vimeo video id:
+    vimeoVideoIdProperty: &#39;vimeo&#39;,
+    // The URL for the Vimeo video player, can be extended with custom parameters:
+    // https://developer.vimeo.com/player/embedding
+    vimeoPlayerUrl: &#39;//player.vimeo.com/video/VIDEO_ID?api=1&amp;player_id=PLAYER_ID&#39;,
+    // The prefix for the Vimeo video player ID:
+    vimeoPlayerIdPrefix: &#39;vimeo-player-&#39;,
+    // Require a click on the native Vimeo player for the initial playback:
+    vimeoClickToPlay: true
+};
+</code></pre>
+<h3 id="container-and-element-options">Container and element options</h3>
+<p>The widget <strong>container</strong> option can be set as id string (with &quot;#&quot; as prefix) or element node, so the following are equivalent:</p>
+<pre><code class="lang-js">var options = {
+    container: &#39;#blueimp-gallery&#39;
+};
+</code></pre>
+<pre><code class="lang-js">var options = {
+    container: document.getElementById(&#39;blueimp-gallery&#39;)
+};
+</code></pre>
+<p>The <strong>slidesContainer</strong>, <strong>titleElement</strong> and <strong>indicatorContainer</strong> options can also be defined using a tag name, which selects the first tag of this kind found inside of the widget container:</p>
+<pre><code class="lang-js">var options = {
+    slidesContainer: &#39;div&#39;,
+    titleElement: &#39;h3&#39;,
+    indicatorContainer: &#39;ol&#39;
+};
+</code></pre>
+<p>It is also possible to define the container and element options with a more complex <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector">querySelector</a>, which is supported by IE8+ and all modern web browsers.</p>
+<p>If the helper script is replaced with <a href="http://jquery.com/">jQuery</a>, the container and element options can be any valid jQuery selector.</p>
+<h3 id="property-options">Property options</h3>
+<p>The options ending with &quot;Property&quot; define how the properties of each link element are accessed.<br>For example, the <strong>urlProperty</strong> is by default set to <strong>href</strong>. This allows to define link elements with <strong>href</strong> or <strong>data-href</strong> attributes:</p>
+<pre><code class="lang-html">&lt;div id=&quot;links&quot;&gt;
+    &lt;a href=&quot;images/banana.jpg&quot;&gt;Banana&lt;/a&gt;
+    &lt;a data-href=&quot;images/apple.jpg&quot;&gt;Apple&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<p>If the links are passed as JavaScript array, it is also possible to define nested property names, by using the native JavaScript accessor syntax for the property string:</p>
+<pre><code class="lang-js">blueimp.Gallery(
+    [
+        {
+            data: {urls: [&#39;http://example.org/images/banana.jpg&#39;]}
+        },
+        {
+            data: {urls: [&#39;http://example.org/images/apple.jpg&#39;]}
+        }
+    ],
+    {
+        urlProperty: &#39;data.urls[0]&#39;
+    }
+);
+</code></pre>
+<h2 id="api">API</h2>
+<h3 id="initialization">Initialization</h3>
+<p>The blueimp Gallery can be initialized by simply calling it as a function with an array of links as first argument and an optional options object as second argument:</p>
+<pre><code class="lang-js">var gallery = blueimp.Gallery(links, options);
+</code></pre>
+<p>The links array can be a list of URL strings or a list of objects with URL properties:</p>
+<pre><code class="lang-js">var gallery = blueimp.Gallery([
+    &#39;http://example.org/images/banana.jpg&#39;,
+    &#39;http://example.org/images/apple.jpg&#39;,
+    &#39;http://example.org/images/orange.jpg&#39;
+]);
+</code></pre>
+<pre><code class="lang-js">var gallery = blueimp.Gallery([
+    {
+        title: &#39;Banana&#39;,
+        href: &#39;http://example.org/images/banana.jpg&#39;,
+        type: &#39;image/jpeg&#39;,
+        thumbnail: &#39;http://example.org/thumbnails/banana.jpg&#39;
+    },
+    {
+        title: &#39;Apple&#39;,
+        href: &#39;http://example.org/images/apple.jpg&#39;,
+        type: &#39;image/jpeg&#39;,
+        thumbnail: &#39;http://example.org/thumbnails/apple.jpg&#39;
+    }
+]);
+</code></pre>
+<p>The URL property name defined by each list object can be configured via the <strong>urlProperty</strong> option. By default, it is set to <strong>href</strong>, which allows to pass a list of HTML link elements as first argument.</p>
+<p>For images, the <strong>thumbnail</strong> property defines the URL of the image thumbnail, which is used for the indicator navigation displayed at the bottom of the Gallery, if the controls are visible.</p>
+<p>The object returned by executing the Gallery function (the <strong>gallery</strong> variable in the example code above) is a new instance of the Gallery and allows to access the public <a href="#api-methods">API methods</a> provided by the Gallery.<br>The Gallery initialization function returns <strong>false</strong> if the given list was empty, the Gallery widget is missing, or the browser doesn&#39;t pass the functionality test.</p>
+<h3 id="api-methods">API methods</h3>
+<p>The Gallery object returned by executing the Gallery function provides the following public API methods:</p>
+<pre><code class="lang-js">// Return the current slide index position:
+var pos = gallery.getIndex();
+
+// Return the total number of slides:
+var count = gallery.getNumber();
+
+// Move to the previous slide:
+gallery.prev();
+
+// Move to the next slide:
+gallery.next();
+
+// Move to the given slide index with the (optional) given duraction speed in milliseconds:
+gallery.slide(index, duration);
+
+// Start an automatic slideshow with the given interval in milliseconds (optional):
+gallery.play(interval);
+
+// Stop the automatic slideshow:
+gallery.pause();
+
+// Add additional slides after Gallery initialization:
+gallery.add(list);
+
+// Close and deinitialize the Gallery:
+gallery.close();
+</code></pre>
+<h3 id="videos">Videos</h3>
+<h4 id="html5-video-player">HTML5 video player</h4>
+<p>The Gallery can be initialized with a list of videos instead of images, or a combination of both:</p>
+<pre><code class="lang-js">blueimp.Gallery([
+    {
+        title: &#39;Fruits&#39;,
+        href: &#39;http://example.org/videos/fruits.mp4&#39;,
+        type: &#39;video/mp4&#39;,
+        poster: &#39;http://example.org/images/fruits.jpg&#39;
+    },
+    {
+        title: &#39;Banana&#39;,
+        href: &#39;http://example.org/images/banana.jpg&#39;,
+        type: &#39;image/jpeg&#39;,
+        thumbnail: &#39;http://example.org/thumbnails/banana.jpg&#39;
+    }
+]);
+</code></pre>
+<p>The Gallery uses the <strong>type</strong> property to determine the content type of the object to display.<br>If the type property is empty or doesn&#39;t exist, the default type <strong>image</strong> is assumed.<br>Objects with a video type will be displayed in a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video">HTML5 video element</a> if the browser supports the video content type.</p>
+<p>For videos, the <strong>poster</strong> property defines the URL of the poster image to display, before the video is started.</p>
+<h4 id="multiple-video-sources">Multiple video sources</h4>
+<p>To provide multiple video formats, the <strong>sources</strong> property of a list object can be set to an array of objects with <strong>href</strong> and <strong>type</strong> properties for each video source. The first video format in the list that the browser can play will be displayed:</p>
+<pre><code class="lang-js">blueimp.Gallery([
+    {
+        title: &#39;Fruits&#39;,
+        type: &#39;video/*&#39;,
+        poster: &#39;http://example.org/images/fruits.jpg&#39;,
+        sources: [
+            {
+                href: &#39;http://example.org/videos/fruits.mp4&#39;,
+                type: &#39;video/mp4&#39;
+            },
+            {
+                href: &#39;http://example.org/videos/fruits.ogg&#39;,
+                type: &#39;video/ogg&#39;
+            }
+        ]
+    }
+]);
+</code></pre>
+<p>It is also possible to define the video sources as data-attribute on a link element in <a href="https://developer.mozilla.org/en-US/docs/JSON">JSON</a> array format:</p>
+<pre><code class="lang-html">&lt;div id=&quot;links&quot;&gt;
+    &lt;a
+        href=&quot;http://example.org/videos/fruits.mp4&quot;
+        title=&quot;Fruits&quot;
+        type=&quot;video/mp4&quot;
+        data-poster=&quot;http://example.org/images/fruits.jpg&quot;
+        data-sources=&#39;[{&quot;href&quot;: &quot;http://example.org/videos/fruits.mp4&quot;, &quot;type&quot;: &quot;video/mp4&quot;}, {&quot;href&quot;: &quot;http://example.org/videos/fruits.ogg&quot;, &quot;type&quot;: &quot;video/ogg&quot;}]&#39;
+    &gt;Fruits&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<h4 id="youtube">YouTube</h4>
+<p>The Gallery can display <a href="https://www.youtube.com/">YouTube</a> videos for Gallery items with a <strong>type</strong> of <strong>text/html</strong> and a <strong>youtube</strong> property (configurable via <a href="#youtube-options">YouTube options</a>) with the YouTube video-ID:</p>
+<pre><code class="lang-js">blueimp.Gallery([
+    {
+        title: &#39;A YouYube video&#39;,
+        href: &#39;https://www.youtube.com/watch?v=VIDEO_ID&#39;,
+        type: &#39;text/html&#39;,
+        youtube: &#39;VIDEO_ID&#39;,
+        poster: &#39;https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg&#39;
+    },
+    {
+        title: &#39;Banana&#39;,
+        href: &#39;http://example.org/images/banana.jpg&#39;,
+        type: &#39;image/jpeg&#39;,
+        thumbnail: &#39;http://example.org/thumbnails/banana.jpg&#39;
+    }
+]);
+</code></pre>
+<p>If the <code>href</code> and <code>poster</code> properties are undefined, they are set automatically based on the video ID.</p>
+<p>Please note that the Gallery YouTube integration requires a browser with <a href="https://developer.mozilla.org/en-US/docs/Web/API/window.postMessage">postMessage</a> support, which excludes IE7.</p>
+<h4 id="vimeo">Vimeo</h4>
+<p>The Gallery can display <a href="https://vimeo.com/">Vimeo</a> videos for Gallery items with a <strong>type</strong> of <strong>text/html</strong> and a <strong>vimeo</strong> property (configurable via <a href="#vimeo-options">Vimeo options</a>) with the Vimeo video-ID:</p>
+<pre><code class="lang-js">blueimp.Gallery([
+    {
+        title: &#39;A Vimeo video&#39;,
+        href: &#39;https://vimeo.com/VIDEO_ID&#39;,
+        type: &#39;text/html&#39;,
+        vimeo: &#39;VIDEO_ID&#39;,
+        poster: &#39;https://secure-b.vimeocdn.com/ts/POSTER_ID.jpg&#39;
+    },
+    {
+        title: &#39;Banana&#39;,
+        href: &#39;http://example.org/images/banana.jpg&#39;,
+        type: &#39;image/jpeg&#39;,
+        thumbnail: &#39;http://example.org/thumbnails/banana.jpg&#39;
+    }
+]);
+</code></pre>
+<p>If the <code>href</code> property is undefined, it is set automatically based on the video ID.</p>
+<p>Please note that the Gallery Vimeo integration requires a browser with <a href="https://developer.mozilla.org/en-US/docs/Web/API/window.postMessage">postMessage</a> support, which excludes IE7.</p>
+<h3 id="additional-gallery-elements">Additional Gallery elements</h3>
+<p>It is possible to add additional elements to the Gallery widget, e.g. a description label.</p>
+<p>First, add the desired HTML element to the Gallery widget:</p>
+<pre><code class="lang-html">&lt;div id=&quot;blueimp-gallery&quot; class=&quot;blueimp-gallery&quot;&gt;
+    &lt;div class=&quot;slides&quot;&gt;&lt;/div&gt;
+    &lt;h3 class=&quot;title&quot;&gt;&lt;/h3&gt;
+    &lt;!-- The placeholder for the description label: --&gt;
+    &lt;p class=&quot;description&quot;&gt;&lt;/p&gt;
+    &lt;a class=&quot;prev&quot;&gt;‹&lt;/a&gt;
+    &lt;a class=&quot;next&quot;&gt;›&lt;/a&gt;
+    &lt;a class=&quot;close&quot;&gt;×&lt;/a&gt;
+    &lt;a class=&quot;play-pause&quot;&gt;&lt;/a&gt;
+    &lt;ol class=&quot;indicator&quot;&gt;&lt;/ol&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Next, add the desired element styles to your CSS file:</p>
+<pre><code class="lang-css">.blueimp-gallery &gt; .description {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  color: #fff;
+  display: none;
+}
+.blueimp-gallery-controls &gt; .description {
+  display: block;
+}
+</code></pre>
+<p>Then, add the additional element information to each of your links:</p>
+<pre><code class="lang-html">&lt;div id=&quot;links&quot;&gt;
+    &lt;a href=&quot;images/banana.jpg&quot; title=&quot;Banana&quot; data-description=&quot;This is a banana.&quot;&gt;Banana&lt;/a&gt;
+    &lt;a href=&quot;images/apple.jpg&quot; title=&quot;Apple&quot; data-description=&quot;This is an apple.&quot;&gt;Apple&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Finally, initialize the Gallery with an onslide callback option, to set the element content based on the information from the current link:</p>
+<pre><code class="lang-js">blueimp.Gallery(
+    document.getElementById(&#39;links&#39;),
+    {
+        onslide: function (index, slide) {
+            var text = this.list[index].getAttribute(&#39;data-description&#39;),
+                node = this.container.find(&#39;.description&#39;);
+            node.empty();
+            if (text) {
+                node[0].appendChild(document.createTextNode(text));
+            }
+        }
+    }
+);
+</code></pre>
+<h3 id="additional-content-types">Additional content types</h3>
+<p>By extending the Gallery prototype with new factory methods, additional content types can be displayed.  By default, blueimp Gallery provides the <strong>imageFactory</strong> and <strong>videoFactory</strong> methods for <strong>image</strong> and <strong>video</strong> content types respectively.  </p>
+<p>The Gallery uses the <strong>type</strong> property of each content object to determine which factory method to use.  The <strong>type</strong> defines the <a href="http://en.wikipedia.org/wiki/Internet_media_type">Internet media type</a> of the content object and is composed of two or more parts: A type, a subtype, and zero or more optional parameters, e.g. <strong>text/html; charset=UTF-8</strong> for an HTML document with UTF-8 encoding.<br>The main type (the string in front of the slash, <strong>text</strong> in the example above) is concatenated with the string <strong>Factory</strong> to create the factory method name, e.g. <strong>textFactory</strong>.</p>
+<h4 id="example-html-text-factory-implementation">Example HTML text factory implementation</h4>
+<p>Please note that the textFactory script has to be included after the core Gallery script, but before including the <a href="#youtube">YouTube</a> and <a href="#vimeo">Vimeo</a> integration plugins, which extend the textFactory implementation to handle YouTube and Vimeo video links.</p>
+<p>Please also note that although blueimp Gallery doesn&#39;t require <a href="http://jquery.com/">jQuery</a>, the following example uses it for convenience.</p>
+<p>Extend the Gallery prototype with the <strong>textFactory</strong> method:</p>
+<pre><code class="lang-js">blueimp.Gallery.prototype.textFactory = function (obj, callback) {
+    var $element = $(&#39;&lt;div&gt;&#39;)
+            .addClass(&#39;text-content&#39;)
+            .attr(&#39;title&#39;, obj.title);
+    $.get(obj.href)
+        .done(function (result) {
+            $element.html(result);
+            callback({
+                type: &#39;load&#39;,
+                target: $element[0]
+            });
+        })
+        .fail(function () {
+            callback({
+                type: &#39;error&#39;,
+                target: $element[0]
+            });
+        });
+    return $element[0];
+};
+</code></pre>
+<p>Next, add the <strong>text-content</strong> class to the Gallery CSS:</p>
+<pre><code class="lang-css">.blueimp-gallery &gt; .slides &gt; .slide &gt; .text-content {
+    overflow: auto;
+    margin: 60px auto;
+    padding: 0 60px;
+    max-width: 920px;
+    text-align: left;
+}
+</code></pre>
+<p>With the previous changes in place, the Gallery can now handle HTML content types:</p>
+<pre><code class="lang-js">blueimp.Gallery([
+    {
+        title: &#39;Noodle soup&#39;,
+        href: &#39;http://example.org/text/noodle-soup.html&#39;,
+        type: &#39;text/html&#39;
+    },
+    {
+        title: &#39;Tomato salad&#39;,
+        href: &#39;http://example.org/text/tomato-salad.html&#39;,
+        type: &#39;text/html&#39;
+    }
+]);
+</code></pre>
+<h3 id="jquery-plugin">jQuery plugin</h3>
+<h4 id="jquery-plugin-setup">jQuery plugin setup</h4>
+<p>The blueimp Gallery jQuery plugin registers a global click handler to open links with <strong>data-gallery</strong> attribute in the Gallery lightbox.</p>
+<p>To use it, follow the <a href="#lightbox-setup">lightbox setup</a> guide, but replace the minified Gallery script with the jQuery plugin version and include it after including <a href="http://jquery.com/">jQuery</a>:</p>
+<pre><code class="lang-html">&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/jquery.blueimp-gallery.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Next, add the attribute <strong>data-gallery</strong> to your Gallery links:</p>
+<pre><code class="lang-html">&lt;div id=&quot;links&quot;&gt;
+    &lt;a href=&quot;images/banana.jpg&quot; title=&quot;Banana&quot; data-gallery&gt;
+        &lt;img src=&quot;images/thumbnails/banana.jpg&quot; alt=&quot;Banana&quot;&gt;
+    &lt;/a&gt;
+    &lt;a href=&quot;images/apple.jpg&quot; title=&quot;Apple&quot; data-gallery&gt;
+        &lt;img src=&quot;images/thumbnails/apple.jpg&quot; alt=&quot;Apple&quot;&gt;
+    &lt;/a&gt;
+    &lt;a href=&quot;images/orange.jpg&quot; title=&quot;Orange&quot; data-gallery&gt;
+        &lt;img src=&quot;images/thumbnails/orange.jpg&quot; alt=&quot;Orange&quot;&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<p>The onclick handler from the <a href="#lightbox-setup">lightbox setup</a> guide is not required and can be removed.</p>
+<h4 id="html5-data-attributes">HTML5 data-attributes</h4>
+<p>Options for the Gallery lightbox opened via the jQuery plugin can be defined as <a href="http://api.jquery.com/data/#data-html5">HTML5 data-attributes</a> on the Gallery widget container.</p>
+<p>The jQuery plugin also introduces the additional <strong>filter</strong> option, which is applied to the Gallery links via <a href="http://api.jquery.com/filter/">jQuery&#39;s filter method</a> and allows to remove duplicates from the list:</p>
+<pre><code class="lang-html">&lt;div id=&quot;blueimp-gallery&quot; class=&quot;blueimp-gallery&quot; data-start-slideshow=&quot;true&quot; data-filter=&quot;:even&quot;&gt;
+    &lt;div class=&quot;slides&quot;&gt;&lt;/div&gt;
+    &lt;h3 class=&quot;title&quot;&gt;&lt;/h3&gt;
+    &lt;a class=&quot;prev&quot;&gt;‹&lt;/a&gt;
+    &lt;a class=&quot;next&quot;&gt;›&lt;/a&gt;
+    &lt;a class=&quot;close&quot;&gt;×&lt;/a&gt;
+    &lt;a class=&quot;play-pause&quot;&gt;&lt;/a&gt;
+    &lt;ol class=&quot;indicator&quot;&gt;&lt;/ol&gt;
+&lt;/div&gt;
+</code></pre>
+<p>This will initialize the Gallery with the option <strong>startSlideshow</strong> set to <strong>true</strong>.<br>It will also filter the Gallery links so that only links with an even index number will be included.</p>
+<h4 id="container-ids-and-link-grouping">Container ids and link grouping</h4>
+<p>If the <strong>data-gallery</strong> attribute value is a valid id string (e.g. &quot;#blueimp-gallery&quot;), it is used as container option.<br>Setting <strong>data-gallery</strong> to a non-empty string also allows to group links into different sets of Gallery images:</p>
+<pre><code class="lang-html">&lt;div id=&quot;fruits&quot;&gt;
+    &lt;a href=&quot;images/banana.jpg&quot; title=&quot;Banana&quot; data-gallery=&quot;#blueimp-gallery-fruits&quot;&gt;
+        &lt;img src=&quot;images/thumbnails/banana.jpg&quot; alt=&quot;Banana&quot;&gt;
+    &lt;/a&gt;
+    &lt;a href=&quot;images/apple.jpg&quot; title=&quot;Apple&quot; data-gallery=&quot;#blueimp-gallery-fruits&quot;&gt;
+        &lt;img src=&quot;images/thumbnails/apple.jpg&quot; alt=&quot;Apple&quot;&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+&lt;div id=&quot;vegetables&quot;&gt;
+    &lt;a href=&quot;images/tomato.jpg&quot; title=&quot;Tomato&quot; data-gallery=&quot;#blueimp-gallery-vegetables&quot;&gt;
+        &lt;img src=&quot;images/thumbnails/tomato.jpg&quot; alt=&quot;Tomato&quot;&gt;
+    &lt;/a&gt;
+    &lt;a href=&quot;images/onion.jpg&quot; title=&quot;Onion&quot; data-gallery=&quot;#blueimp-gallery-vegetables&quot;&gt;
+        &lt;img src=&quot;images/thumbnails/onion.jpg&quot; alt=&quot;Onion&quot;&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<p>This will open the links with the <strong>data-gallery</strong> attribute <strong>#blueimp-gallery-fruits</strong> in the Gallery widget with the id <strong>blueimp-gallery-fruits</strong>, and the links with the <strong>data-gallery</strong> attribute <strong>#blueimp-gallery-vegetables</strong>  in the Gallery widget with the id <strong>blueimp-gallery-vegetables</strong>.</p>
+<h4 id="gallery-object">Gallery object</h4>
+<p>The gallery object is stored via <a href="http://api.jquery.com/category/miscellaneous/data-storage/">jQuery data storage</a> on the Gallery widget when the Gallery is opened and can be retrieved the following way:</p>
+<pre><code class="lang-js">var gallery = $(&#39;#blueimp-gallery&#39;).data(&#39;gallery&#39;);
+</code></pre>
+<p>This gallery object provides all methods outlined in the API methods section.</p>
+<h4 id="jquery-events">jQuery events</h4>
+<p>The jQuery plugin triggers Gallery events on the widget container, with event names equivalent to the gallery <a href="#event-callbacks">event callbacks</a>:</p>
+<pre><code class="lang-js">$(&#39;#blueimp-gallery&#39;)
+    .on(&#39;open&#39;, function (event) {
+        // Gallery open event handler
+    })
+    .on(&#39;opened&#39;, function (event) {
+        // Gallery opened event handler
+    })
+    .on(&#39;slide&#39;, function (event, index, slide) {
+        // Gallery slide event handler
+    })
+    .on(&#39;slideend&#39;, function (event, index, slide) {
+        // Gallery slideend event handler
+    })
+    .on(&#39;slidecomplete&#39;, function (event, index, slide) {
+        // Gallery slidecomplete event handler
+    })
+    .on(&#39;close&#39;, function (event) {
+        // Gallery close event handler
+    })
+    .on(&#39;closed&#39;, function (event) {
+        // Gallery closed event handler
+    });
+</code></pre>
+<h2 id="requirements">Requirements</h2>
+<p>blueimp Gallery doesn&#39;t require any other libraries and can be used standalone without any dependencies.</p>
+<p>You can also use the individual source files instead of the standalone minified version:</p>
+<pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;css/blueimp-gallery.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/blueimp-gallery-indicator.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/blueimp-gallery-video.css&quot;&gt;
+&lt;!-- ... --&gt;
+&lt;script src=&quot;js/blueimp-helper.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/blueimp-gallery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/blueimp-gallery-fullscreen.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/blueimp-gallery-indicator.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/blueimp-gallery-video.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/blueimp-gallery-youtube.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/blueimp-gallery-vimeo.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>The helper script can be replaced by <a href="http://jquery.com/">jQuery</a> v. 1.7+.<br>The fullscreen, indicator, video, youtube and vimeo source files are optional if their functionality is not required.</p>
+<p>The <a href="#jquery-plugin">jQuery plugin</a> requires <a href="http://jquery.com/">jQuery</a> v. 1.7+ and the basic Gallery script, while the fullscreen, indicator, video, youtube and vimeo source files are also optional:</p>
+<pre><code class="lang-html">&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/blueimp-gallery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/blueimp-gallery-fullscreen.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/blueimp-gallery-indicator.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/blueimp-gallery-video.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/blueimp-gallery-youtube.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/blueimp-gallery-vimeo.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/jquery.blueimp-gallery.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Please note that the jQuery plugin is an optional extension and not required for the Gallery functionality.</p>
+<h2 id="browsers">Browsers</h2>
+<p>blueimp Gallery has been tested with and supports the following browsers:</p>
+<h3 id="desktop-browsers">Desktop browsers</h3>
+<ul>
+<li>Google Chrome 14.0+</li>
+<li>Apple Safari 4.0+</li>
+<li>Mozilla Firefox 4.0+</li>
+<li>Opera 10.0+</li>
+<li>Microsoft Internet Explorer 7.0+</li>
+</ul>
+<h3 id="mobile-browsers">Mobile browsers</h3>
+<ul>
+<li>Apple Safari on iOS 6.0+</li>
+<li>Google Chrome on iOS 6.0+</li>
+<li>Google Chrome on Android 4.0+</li>
+<li>Default Browser on Android 2.3+</li>
+<li>Opera Mobile 12.0+</li>
+</ul>
+<h2 id="license">License</h2>
+<p>Released under the <a href="http://www.opensource.org/licenses/MIT">MIT license</a>.</p>
+<h2 id="credits">Credits</h2>
+<p>The swipe implementation is based on code from the <a href="http://swipejs.com/">Swipe</a> library.</p>

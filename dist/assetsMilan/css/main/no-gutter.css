@@ -1,0 +1,63 @@
+/*
+Error: Invalid CSS after "padding ": expected selector, was "0 0"
+        on line 3 of no-gutter.sass
+
+1: /* no-gutters Class Rules *\/
+2: .container-fluid.no-gutters, .container.no-gutters
+3: 	padding 0 0
+4: 	.row
+5: 		margin-right 0
+6: 		margin-left 0
+7: 	.row > [class^="col-"],
+8: 	.row > [class*=" col-"]
+
+Backtrace:
+no-gutter.sass:3
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/scss/parser.rb:1165:in `expected'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/scss/parser.rb:1101:in `expected'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/scss/static_parser.rb:21:in `parse_selector'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block (2 levels) in visit_rule'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `map'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block in visit_rule'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:418:in `visit_rule'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/engine.rb:285:in `render_with_sourcemap'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:396:in `run'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:62:in `process_result'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/exec/base.rb:52:in `parse'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/lib/sass/exec/base.rb:19:in `parse!'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.9/bin/sass:13:in `<top (required)>'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/loader.rb:15:in `load'
+/Users/nicur/Downloads/Prepros.app/Contents/Resources/app/ruby/loader.rb:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"padding \": expected selector, was \"0 0\"\A         on line 3 of no-gutter.sass\A \A 1: /* no-gutters Class Rules */\A 2: .container-fluid.no-gutters, .container.no-gutters\A 3: 	padding 0 0\A 4: 	.row\A 5: 		margin-right 0\A 6: 		margin-left 0\A 7: 	.row > [class^=\"col-\"],\A 8: 	.row > [class*=\" col-\"]"; }

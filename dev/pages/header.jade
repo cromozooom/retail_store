@@ -1,0 +1,52 @@
+section.header
+	.container-fluid
+		.container
+			.row
+				.col-xs-12.col-sm-4
+
+					img.img-responsive(src="#{assets}/images/logo.png" alt="#{altLogo}")
+				.col-xs-12.col-sm-8
+					p.phone.text-right.first
+						| tel: 
+						if phone01
+							a(href="tel:#{phone01}") #{phone01} 
+						if phone02
+							| | 
+							a(href="tel:#{phone02}") #{phone02}
+					br
+
+					script(type="text/javascript" src="http://w.sharethis.com/button/buttons.js")
+					//- AddThis Button BEGIN
+					.addthis_toolbox.addthis_default_style.share.pull-right
+						a.addthis_button_facebook_like(fb:like:layout="button_count")
+						a.addthis_button_tweet(style="width: 90px;")
+						a.addthis_button_google_plusone(g:plusone:size="medium")
+						a.addthis_counter.addthis_pill_style
+					script(type="text/javascript")
+						var addthis_config = {"data_track_addressbar": true};
+					script(type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50fffc642350b5f0")
+					//- AddThis Button END
+
+				//-.col-xs-12.col-sm-8
+					p.phone.text-center.first
+						span.glyphicon.glyphicon-earphone(aria-hidden="true")
+						| tel: 
+						a(href="tel:#{phone01}") #{phone01}
+					.clearfix.visible-sd-block
+					p.phone.text-center
+
+						| mobile: 
+						a(href="tel:#{phone02}") #{phone02}
+					br
+					p.clearfix.text-right
+						script(type="text/javascript" src="http://w.sharethis.com/button/buttons.js")
+						//- AddThis Button BEGIN
+						.addthis_toolbox.addthis_default_style.share
+							a.addthis_button_facebook_like(fb:like:layout="button_count")
+							a.addthis_button_tweet(style="width: 90px;")
+							a.addthis_button_google_plusone(g:plusone:size="medium")
+							a.addthis_counter.addthis_pill_style
+						script(type="text/javascript")
+							var addthis_config = {"data_track_addressbar": true};
+						script(type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50fffc642350b5f0")
+						//- AddThis Button END
